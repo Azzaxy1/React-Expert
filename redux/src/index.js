@@ -1,5 +1,4 @@
-// import { createStore } from "./redux.js";
-import { createStore } from "redux";
+import { createStore } from "./redux.js";
 
 //* Action Creator
 const addTodoActionCreator = ({ id, text }) => {
