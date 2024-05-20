@@ -1,7 +1,10 @@
 import { applyMiddleware, createStore } from "redux";
 import rootReducer from "./rootReducer";
-import { todoDeletionCheck } from "./middleware";
+import { thunk, todoDeletionCheck } from "./middleware";
 
-const store = createStore(rootReducer, applyMiddleware(todoDeletionCheck));
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk, todoDeletionCheck)
+);
 
 export { store };

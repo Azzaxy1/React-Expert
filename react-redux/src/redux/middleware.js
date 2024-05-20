@@ -15,4 +15,14 @@ const todoDeletionCheck = (store) => {
   };
 };
 
-export { todoDeletionCheck };
+const thunk = (store) => {
+  return (next) => (action) => {
+    if (typeof action === "function") {
+      return action(store.dispatch, store.getState);
+    }
+
+    return next(action);
+  };
+};
+
+export { todoDeletionCheck, thunk };
