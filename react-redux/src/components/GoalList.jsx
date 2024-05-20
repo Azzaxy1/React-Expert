@@ -1,33 +1,30 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useEffect } from "react";
 import GoalInput from "./GoalInput";
 import GoalItem from "./GoalItem";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addGoalActionCreator,
-  deleteGoalActionCreator,
+  asyncAddGoal,
+  asyncDeleteGoal,
+  asyncReceiveGoal,
 } from "../redux/goals/action";
 
 function GoalsList() {
   const goals = useSelector((states) => states.goals); // TODO: Get goals from store;
   const dispatch = useDispatch();
-  console.log(goals);
+
+  useEffect(() => {
+    dispatch(asyncReceiveGoal());
+  }, [dispatch]);
 
   function onAddGoal(text) {
-    const id = `goal-${+new Date()}`;
-
     // TODO: dispatch action ADD_GOAL
-    dispatch(
-      addGoalActionCreator({
-        id,
-        text,
-      })
-    );
+    dispatch(asyncAddGoal(text));
   }
 
   function onDeleteGoal(id) {
     // TODO: dispatch action DELETE_GOAL
-    dispatch(deleteGoalActionCreator(id));
+    dispatch(asyncDeleteGoal(id));
   }
 
   return (
