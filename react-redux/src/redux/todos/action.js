@@ -1,8 +1,15 @@
 import mockAPI from "../../data/mockAPI";
 
+const ActionType = {
+  ADD_TODO: "ADD_TODO",
+  DELETE_TODO: "DELETE_TODO",
+  TOGGLE_TODO: "TOGGLE_TODO",
+  RECEIVE_TODOS: "RECEIVE_TODOS",
+};
+
 const addTodoActionCreator = ({ id, text }) => {
   return {
-    type: "ADD_TODO",
+    type: ActionType.ADD_TODO,
     payload: {
       id,
       text,
@@ -13,7 +20,7 @@ const addTodoActionCreator = ({ id, text }) => {
 
 const deleteTodoActionCreator = (id) => {
   return {
-    type: "DELETE_TODO",
+    type: ActionType.DELETE_TODO,
     payload: {
       id,
     },
@@ -22,7 +29,7 @@ const deleteTodoActionCreator = (id) => {
 
 const toggleTodoActionCreator = (id) => {
   return {
-    type: "TOGGLE_TODO",
+    type: ActionType.TOGGLE_TODO,
     payload: {
       id,
     },
@@ -32,7 +39,7 @@ const toggleTodoActionCreator = (id) => {
 // menetapkan nilai state todos dengan nilai yang didapatkan dari API
 const receiveTodosActionCreator = (todos) => {
   return {
-    type: "RECEIVE_TODOS",
+    type: ActionType.RECEIVE_TODOS,
     payload: {
       todos,
     },
@@ -54,10 +61,21 @@ const asyncDeleteTodo = (id) => {
   };
 };
 
-const asyncToggle = (id) => {
+const asyncToggleTodo = (id) => {
   return async (dispatch) => {
-    await mockAPI.toggleTodo(id);
     dispatch(toggleTodoActionCreator(id));
+
+    try {
+      const data = await mockAPI.toggleTodo(id);
+      console.log(data);
+    } catch (error) {
+      alert(error.message);
+
+      // rollback state change with re-toggling the to-do item.
+      dispatch(toggleTodoActionCreator(id));
+
+      // ... you can also do crash reporting.
+    }
   };
 };
 
@@ -69,12 +87,13 @@ const asyncReceiveTodos = () => {
 };
 
 export {
+  ActionType,
   addTodoActionCreator,
   deleteTodoActionCreator,
   toggleTodoActionCreator,
   receiveTodosActionCreator,
   asyncDeleteTodo,
-  asyncToggle,
+  asyncToggleTodo,
   asyncAddTodo,
   asyncReceiveTodos,
 };

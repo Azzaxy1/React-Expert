@@ -1,8 +1,14 @@
 import mockAPI from "../../data/mockAPI";
 
+const ActionType = {
+  ADD_GOAL: "ADD_GOAL",
+  DELETE_GOAL: "DELETE_GOAL",
+  RECEIVE_GOALS: "RECEIVE_GOALS",
+};
+
 const addGoalActionCreator = ({ id, text }) => {
   return {
-    type: "ADD_GOAL",
+    type: ActionType.ADD_GOAL,
     payload: {
       id,
       text,
@@ -12,7 +18,7 @@ const addGoalActionCreator = ({ id, text }) => {
 
 const deleteGoalActionCreator = (id) => {
   return {
-    type: "DELETE_GOAL",
+    type: ActionType.DELETE_GOAL,
     payload: {
       id,
     },
@@ -21,7 +27,7 @@ const deleteGoalActionCreator = (id) => {
 
 const receiveGoalsActionCreator = (goals) => {
   return {
-    type: "RECEIVE_GOALS",
+    type: ActionType.RECEIVE_GOALS,
     payload: {
       goals,
     },
@@ -51,6 +57,7 @@ const asyncDeleteGoal = (id) => {
 };
 
 export {
+  ActionType,
   addGoalActionCreator,
   deleteGoalActionCreator,
   asyncAddGoal,

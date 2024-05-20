@@ -7,7 +7,7 @@ import {
   asyncAddTodo,
   asyncDeleteTodo,
   asyncReceiveTodos,
-  asyncToggle,
+  asyncToggleTodo,
 } from "../redux/todos/action";
 
 function TodoList() {
@@ -25,7 +25,7 @@ function TodoList() {
 
   function onToggleTodo(id) {
     // TODO: dispatch action TOGGLE_TODO
-    dispatch(asyncToggle(id));
+    dispatch(asyncToggleTodo(id));
   }
 
   function onDeleteTodo(id) {
