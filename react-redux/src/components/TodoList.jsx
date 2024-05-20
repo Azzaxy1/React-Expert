@@ -12,7 +12,6 @@ import {
 function TodoList() {
   const todos = useSelector((states) => states.todos); // TODO: Get todos from store;
   const dispatch = useDispatch();
-  console.log(todos);
 
   function onAddTodo(text) {
     // TODO: dispatch action ADD_TODO
