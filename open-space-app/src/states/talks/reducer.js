@@ -11,10 +11,12 @@ const talksReducer = (talks = [], action = {}) => {
     case ActionType.ADD_TALK:
       return [...talks, action.payload.talk];
     case ActionType.TOGGLE_LIKE_TALK:
+      console.log(talks);
+      console.log(action.payload);
       return talks.map((talk) => {
         if (talk.id === action.payload.talkId) {
           return {
-            talk,
+            ...talk,
             likes: talk.likes.includes(action.payload.userId)
               ? talk.likes.filter((id) => id !== action.payload.userId)
               : [...talk.likes, action.payload.userId],

@@ -11,6 +11,7 @@ const talkDetailReducer = (talkDetail = null, action = {}) => {
     case ActionType.CLEAR_TALK_DETAIL:
       return null;
     case ActionType.TOGGLE_LIKE_TALK_DETAIL:
+      console.log(talkDetail);
       return {
         ...talkDetail,
         likes: talkDetail.likes.includes(action.payload.userId)
