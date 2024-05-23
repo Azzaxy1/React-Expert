@@ -9,7 +9,7 @@ const talksReducer = (talks = [], action = {}) => {
     case ActionType.RECEIVE_TALKS:
       return action.payload.talks;
     case ActionType.ADD_TALK:
-      return [...talks, action.payload.talk];
+      return [action.payload.talk, ...talks];
     case ActionType.TOGGLE_LIKE_TALK:
       console.log(talks);
       console.log(action.payload);

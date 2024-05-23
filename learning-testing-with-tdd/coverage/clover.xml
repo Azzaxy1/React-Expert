@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1716407003323" clover="3.2.0">
-  <project timestamp="1716407003323" name="All files">
+<coverage generated="1716487371331" clover="3.2.0">
+  <project timestamp="1716487371332" name="All files">
     <metrics statements="27" coveredstatements="27" conditionals="14" coveredconditionals="14" methods="1" coveredmethods="1" elements="42" coveredelements="42" complexity="0" loc="27" ncloc="27" packages="1" files="1" classes="1"/>
     <file name="detectTriangle.js" path="D:\My College\Kampus Merdeka MSIB\KM-6 SI Dicoding React dan Backend\Demo Coding MSIB\Menjadi React Web Developer Expert\learning-testing-with-tdd\detectTriangle.js">
       <metrics statements="27" coveredstatements="27" conditionals="14" coveredconditionals="14" methods="1" coveredmethods="1"/>
