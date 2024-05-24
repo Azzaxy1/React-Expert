@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import TalkDetail from "../components/TalkDetail";
-import TalkItem from "../components/TalkItem";
-import TalkReplyInput from "../components/TalkReplyInput";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import TalkDetail from '../components/TalkDetail';
+import TalkItem from '../components/TalkItem';
+import TalkReplyInput from '../components/TalkReplyInput';
 import {
   asyncReceiveTalkDetail,
   asyncToggleLikeTalkDetail,
-} from "../states/talkDetail/action";
-import { asyncAddTalk } from "../states/talks/action";
+} from '../states/talkDetail/action';
+import { asyncAddTalk } from '../states/talks/action';
 
 function DetailPage() {
   const { id } = useParams();
-  const { talkDetail = null, authUser } = useSelector((states) => states); // @TODO: get talkDetail and authUser state from store
+  // @TODO: get talkDetail and authUser state from store
+  const { talkDetail = null, authUser } = useSelector((states) => states);
   const dispatch = useDispatch(); // @TODO: get dispatch function from store
 
   useEffect(() => {

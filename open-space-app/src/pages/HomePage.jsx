@@ -1,16 +1,18 @@
-import React, { useEffect } from "react";
-import TalkInput from "../components/TalkInput";
-import TalksList from "../components/TalksList";
-import { useDispatch, useSelector } from "react-redux";
-import { asyncAddTalk, asyncToggleLikeTalk } from "../states/talks/action";
-import { asyncPopulateUsersAndTalks } from "../states/shared/action";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import TalkInput from '../components/TalkInput';
+import TalksList from '../components/TalksList';
+import { asyncAddTalk, asyncToggleLikeTalk } from '../states/talks/action';
+import { asyncPopulateUsersAndTalks } from '../states/shared/action';
 
 function HomePage() {
-  // const { talks = [], users = [], authUser } = useSelector((states) => states); // @TODO: get talks, users, and authUser state from store
-  const talks = useSelector((states) => states.talks); // @TODO: get talks, users, and authUser state from store
+  // @TODO: get talks, users, and authUser state from store
+  const talks = useSelector((states) => states.talks);
 
-  const users = useSelector((states) => states.users); // @TODO: get talks, users, and authUser state from store
-  const authUser = useSelector((states) => states.authUser); // @TODO: get talks, users, and authUser state from store
+  // @TODO: get talks, users, and authUser state from store
+  const users = useSelector((states) => states.users);
+  // @TODO: get talks, users, and authUser state from store
+  const authUser = useSelector((states) => states.authUser);
 
   const dispatch = useDispatch(); // @TODO: get dispatch function from store
 

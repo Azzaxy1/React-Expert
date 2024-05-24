@@ -9,14 +9,14 @@
  *
  */
 
-import { describe, it, expect } from "vitest";
-import { talksReducer } from "./reducer";
+import { describe, it, expect } from 'vitest';
+import { talksReducer } from './reducer';
 
-describe("talksReducer function", () => {
-  it("should return the inital state when given by unknow action", () => {
+describe('talksReducer function', () => {
+  it('should return the inital state when given by unknow action', () => {
     // arange
     const initialState = [];
-    const action = { type: "" };
+    const action = { type: '' };
 
     // action
     const nextState = talksReducer(initialState, action);
@@ -24,28 +24,28 @@ describe("talksReducer function", () => {
     // assert
     expect(nextState).toEqual(initialState);
   });
-  it("should return the talks when given by RECEIVE_TALKS action", () => {
+  it('should return the talks when given by RECEIVE_TALKS action', () => {
     // arange
     const initialState = [];
     const action = {
-      type: "RECEIVE_TALKS",
+      type: 'RECEIVE_TALKS',
       payload: {
         talks: [
           {
-            id: "talk-1",
-            text: "Talk Test 1",
-            user: "user-1",
-            replyTo: "",
+            id: 'talk-1',
+            text: 'Talk Test 1',
+            user: 'user-1',
+            replyTo: '',
             likes: [],
-            createdAt: "2022-09-22T10:06:55.588Z",
+            createdAt: '2022-09-22T10:06:55.588Z',
           },
           {
-            id: "talk-2",
-            text: "Talk Test 2",
-            user: "user-2",
-            replyTo: "",
+            id: 'talk-2',
+            text: 'Talk Test 2',
+            user: 'user-2',
+            replyTo: '',
             likes: [],
-            createdAt: "2022-09-22T10:06:55.588Z",
+            createdAt: '2022-09-22T10:06:55.588Z',
           },
         ],
       },
@@ -54,32 +54,32 @@ describe("talksReducer function", () => {
     // action
     const nextState = talksReducer(initialState, action);
 
-    //assert
+    // assert
     expect(nextState).toEqual(action.payload.talks);
   });
 
-  it("should return the talks with the new talk when given by ADD_TALK action", () => {
+  it('should return the talks with the new talk when given by ADD_TALK action', () => {
     // arange
     const initialState = [
       {
-        id: "talk-1",
-        text: "Talk Test 1",
-        user: "user-1",
-        replyTo: "",
+        id: 'talk-1',
+        text: 'Talk Test 1',
+        user: 'user-1',
+        replyTo: '',
         likes: [],
-        createdAt: "2022-09-22T10:06:55.588Z",
+        createdAt: '2022-09-22T10:06:55.588Z',
       },
     ];
     const action = {
-      type: "ADD_TALK",
+      type: 'ADD_TALK',
       payload: {
         talk: {
-          id: "talk-2",
-          text: "Talk Test 2",
-          user: "user-2",
-          replyTo: "",
+          id: 'talk-2',
+          text: 'Talk Test 2',
+          user: 'user-2',
+          replyTo: '',
           likes: [],
-          createdAt: "2022-09-22T10:06:56.588Z",
+          createdAt: '2022-09-22T10:06:56.588Z',
         },
       },
     };
@@ -91,23 +91,23 @@ describe("talksReducer function", () => {
     expect(nextState).toEqual([action.payload.talk, ...initialState]);
   });
 });
-it("should return the talks with the toggled like talk when given by TOGGLE_LIKE_TALK action", () => {
+it('should return the talks with the toggled like talk when given by TOGGLE_LIKE_TALK action', () => {
   // arange
   const initialState = [
     {
-      id: "talk-1",
-      text: "Talk Test 1",
-      user: "user-1",
-      replyTo: "",
+      id: 'talk-1',
+      text: 'Talk Test 1',
+      user: 'user-1',
+      replyTo: '',
       likes: [],
-      createdAt: "2022-09-22T10:06:55.588Z",
+      createdAt: '2022-09-22T10:06:55.588Z',
     },
   ];
   const action = {
-    type: "TOGGLE_LIKE_TALK",
+    type: 'TOGGLE_LIKE_TALK',
     payload: {
-      talkId: "talk-1",
-      userId: "user-1",
+      talkId: 'talk-1',
+      userId: 'user-1',
     },
   };
 

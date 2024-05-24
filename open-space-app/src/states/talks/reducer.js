@@ -2,7 +2,7 @@
  * @TODO: Define the reducer for the talks state
  */
 
-import { ActionType } from "./action";
+import { ActionType } from './action';
 
 const talksReducer = (talks = [], action = {}) => {
   switch (action.type) {
@@ -11,8 +11,6 @@ const talksReducer = (talks = [], action = {}) => {
     case ActionType.ADD_TALK:
       return [action.payload.talk, ...talks];
     case ActionType.TOGGLE_LIKE_TALK:
-      console.log(talks);
-      console.log(action.payload);
       return talks.map((talk) => {
         if (talk.id === action.payload.talkId) {
           return {

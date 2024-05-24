@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import TalkItem, { talkItemShape } from "./TalkItem";
+import React from 'react';
+import PropTypes from 'prop-types';
+import TalkItem, { talkItemShape } from './TalkItem';
 
 function TalksList({ talks, like }) {
   return (
@@ -18,4 +18,3 @@ TalksList.propTypes = {
 };
 
 export default TalksList;
-
